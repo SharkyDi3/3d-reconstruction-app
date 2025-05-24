@@ -608,3 +608,12 @@ setTimeout(() => {
     console.log('3D Reconstruction app initialized');
     console.log('Ready to load model.ply file');
 }, 1000);
+
+function getApplicationStatus() {
+    return {
+        uploadedImages: uploadedImages.length,
+        isProcessing: isProcessing,
+        autoRotate: autoRotate,
+        wireframeMode: wireframeMode
+    };
+}
