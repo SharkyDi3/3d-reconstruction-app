@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Reconstruction</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1 class="title">3D Reconstruction</h1>
+            <p class="subtitle">Upload images to create stunning 3D models</p>
+        </div>
+
+        <div class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📷</div>
+                <div class="upload-text">Drop your images here or click to browse</div>
+                <div class="upload-subtext">Minimum 50 images required for 3D reconstruction</div>
+                <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="imageCount">0</div>
+                    <div class="stat-label">Images Uploaded</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="minRequired">50</div>
+                    <div class="stat-label">Minimum Required</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="progressPercent">0%</div>
+                    <div class="stat-label">Progress</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-grid" id="imageGrid"></div>
+
+        <div class="buttons-section">
+            <button class="btn btn-primary" id="uploadBtn" disabled>Start 3D Reconstruction</button>
+            <button class="btn btn-secondary" id="viewModelBtn" disabled>View 3D Model</button>
+        </div>
+
+        <div class="photography-animation" id="photographyAnimation">
+            <h3 style="margin-bottom: 30px; color: #00d4ff;">Capturing Images from Multiple Angles</h3>
+            <div class="photo-scene">
+                <div class="central-object"></div>
+                <div class="photographer"></div>
+                <div class="photo-count" id="photoCounter">Photos taken: 0/360</div>
+            </div>
+            <div class="reconstruction-progress">
+                <div class="progress-text">Processing 3D Reconstruction...</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="reconstructionProgress"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="viewer-section" id="viewerSection">
+            <div class="viewer-header">
+                <h2 class="viewer-title">3D Model Viewer</h2>
+                <div class="viewer-controls">
+                    <button class="control-btn" id="resetViewBtn">Reset View</button>
+                    <button class="control-btn" id="wireframeBtn">Wireframe</button>
+                    <button class="control-btn" id="autoRotateBtn">Auto Rotate</button>
+                    <button class="control-btn" id="fullscreenBtn">Fullscreen</button>
+                </div>
+            </div>
+            <div id="plyViewer">
+                <div class="viewer-overlay">
+                    <div>🖱️ Mouse: Rotate model</div>
+                    <div>🔍 Scroll: Zoom in/out</div>
+                    <div>📱 Touch: Pinch to zoom, drag to rotate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+
+</body>
+</html>
